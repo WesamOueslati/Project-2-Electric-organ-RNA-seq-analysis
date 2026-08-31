@@ -1,0 +1,9 @@
+## Per base quality:
+# SRR25630308:
+- Looking at the per base quality plot, we see that all bases have quality scores of 34 or higher for the R1 file and 33 or higher for the R2 file.
+- In the R2 file, the quality remains closer to 36 until basepairs 60-70 where it starts declining faster than the R1  file with more QS variation at the end of the sequence. Although slower, this decline is seen a little earlier (bp #50) in the R1 file.
+For both files, most of the quality scores are around 36 based on the quality score distribution making this data high quality. Both files have similar GC content distributions and the per-base N content remains near zero throughout.
+
+# SRR25630394:
+- Similar to SRR25630308, quality scores remain high throughout the sequence with average values remaining above 34. The R2 file achieves slightly lower values at the end of the file and have more variation in scores. However the difference between the two files is negligible.
+The GC content distribution is similar for both files (appears normal with a mean of ~50%). In addition, the per base N content is minimal and near 0.
