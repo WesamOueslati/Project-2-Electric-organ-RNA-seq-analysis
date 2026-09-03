@@ -1,0 +1,29 @@
+Proportion of Trimmed Adapters:
+SRR25630308 R1: (25.9%)
+Reads with adapters:                 8,258,276 (25.9%)
+Sequence: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA; Type: regular 3'; Length: 33; Trimmed: 8258276 times
+
+SRR25630308 R2: (25.9%)
+Reads with adapters:                 8,257,237 (25.9%)
+Sequence: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT; Type: regular 3'; Length: 33; Trimmed: 8257237 times
+
+SRR25630394 R1: (7.8%)
+Reads with adapters:                   458,160 (7.8%)
+Sequence: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA; Type: regular 3'; Length: 33; Trimmed: 458160 times
+
+SRR25630394 R2: (8.4%)
+Reads with adapters:                   496,990 (8.4%)
+Sequence: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT; Type: regular 3'; Length: 33; Trimmed: 496990 times
+
+
+## Sanity Check (finding adapters in original file):
+### Command
+zcat FILENAME_R1 | grep AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+zcat FILENAME_R2 | grep AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+
+Files are zipped so we have to zcat them then we search for the adapter sequences usign grep.
+### Confirmation
+- The adapter sequences are all locatted towards the end of the sequence.
+- If they are at the end of the sequence then they are very likely to be adapter sequences.
+- If they are near the end but not at the very end, then we check the sequences that follow them and compare them across the different reads. If they match then we can confirm that these are synthetic sequences from the library preparation 
+- Finally, if there is a poly G sequence at the end, this tells us that this is the end of the sequence meaning that it was very likely an adapter. (I googled this and found out that illumina seq adds Gs when there is a lack of signal meaning that the there are still more cycles but we already reached the end of the strand)
