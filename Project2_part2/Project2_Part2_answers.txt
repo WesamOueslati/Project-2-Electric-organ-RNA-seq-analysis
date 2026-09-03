@@ -24,6 +24,13 @@ zcat FILENAME_R2 | grep AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 Files are zipped so we have to zcat them then we search for the adapter sequences usign grep.
 ### Confirmation
 - The adapter sequences are all locatted towards the end of the sequence.
-- If they are at the end of the sequence then they are very likely to be adapter sequences.
+- If they are at the end of the sequen`ce then they are very likely to be adapter sequences.
 - If they are near the end but not at the very end, then we check the sequences that follow them and compare them across the different reads. If they match then we can confirm that these are synthetic sequences from the library preparation 
 - Finally, if there is a poly G sequence at the end, this tells us that this is the end of the sequence meaning that it was very likely an adapter. (I googled this and found out that illumina seq adds Gs when there is a lack of signal meaning that the there are still more cycles but we already reached the end of the strand)
+
+
+8. Comment on whether you expect R1s and R2s to be adapter-trimmed at different rates and why.
+- We expect them to be trimmed at the same rate because the reads start around the same distance from the adapters on each strand. Therefore, wether the adapter is encountered or not is dependent on the length of the read and not the direction of the read (R1 vs R2).
+
+Bonus:
+- 
