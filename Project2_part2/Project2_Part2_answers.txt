@@ -33,4 +33,4 @@ Files are zipped so we have to zcat them then we search for the adapter sequence
 - We expect them to be trimmed at the same rate because the reads start around the same distance from the adapters on each strand. Therefore, wether the adapter is encountered or not is dependent on the length of the read and not the direction of the read (R1 vs R2).
 
 Bonus:
-- 
+- Based on the plots, we see that the average quality after trimming remains flat overall and decreases very little. It reamain above 36 for each of the files. In addition, all files show a slight increase in quality score at the end of the reads. Figures supportting this can be found in the html files in trimmomatic/quality_trimmed_fastqc
