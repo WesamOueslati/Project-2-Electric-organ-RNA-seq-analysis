@@ -1,1 +1,42 @@
 ## ANSWERS
+
+13. 
+#### Results
+SRR25630308: 
+- Mapped: 58471549
+- Unmapped: 4612667
+
+SRR25630394:
+- Mapped: 11193239
+- Unmapped: 502009
+
+
+14.
+SRR25030308 - stranded=yes
+grep -v ^__ htseq_count_out/SRR25030308.stranded.txt | awk '{sum+=$2} END{print(sum)}'
+- Number of reads that map to features: 794331
+cat htseq_count_out/SRR25030308.stranded.txt | awk '{total+=$2} $1!~"__" {mapped+=$2} END {print(mapped / total * 100)}'
+- percent of mapped reads: 2.51832%
+
+SRR25030308 - stranded=reverse
+grep -v ^__ htseq_count_out/SRR25030308.reversed.txt | awk '{sum+=$2} END{print(sum)}'
+- Number of reads that map to features: 14076546
+cat htseq_count_out/SRR25030308.reversed.txt | awk '{total+=$2} $1!~"__" {mapped+=$2} END {print(mapped / total * 100)}'
+- percent of mapped reads: 44.6278%
+
+SRR25030394 - stranded=yes
+grep -v ^__ htseq_count_out/SRR25030394.stranded.txt | awk '{sum+=$2} END{print(sum)}'
+- Number of reads that map to features: 181495
+cat htseq_count_out/SRR25030394.stranded.txt | awk '{total+=$2} $1!~"__" {mapped+=$2} END {print(mapped / total * 100)}'
+- percent of mapped reads: 3.10374%
+
+SRR25030394 - stranded=reverse
+grep -v ^__ htseq_count_out/SRR25030394.reversed.txt | awk '{sum+=$2} END{print(sum)}'
+- Number of reads that map to features: 3297026
+cat htseq_count_out/SRR25030394.reversed.txt | awk '{total+=$2} $1!~"__" {mapped+=$2} END {print(mapped / total * 100)}'
+- percent of mapped reads: 56.3823%
+
+15.
+I propose that these data are strand-specific because 44.6278% and 56.3823% are on the reverse strand as opposed to the other strand. If our data were to be unstranded, we would expect both stranded=yes and stranded=reverse to have similar percentages of mapped reads.
+Therefore, we should use the stranded=reverse for the counting if the library uses the reverse strand and the library is a first strand cDNA library.
+In addition, the kit mentions *directional* detection of coding and noncoding transcripts.
